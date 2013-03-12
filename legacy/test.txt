@@ -1,0 +1,4 @@
+minispade.register('test.txt', function() {
+'use strict'
+App.window.pwn = booboo.suchatash
+});
