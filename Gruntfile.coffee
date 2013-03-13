@@ -3,13 +3,14 @@ module.exports = (grunt) ->
   grunt.initConfig
     pkg: grunt.file.readJSON('package.json')
     
+    clean: ["compiledJS/"]
+  
     minispade:
       options:
         renameRequire: true
         useStrict: false
         prefixToRemove: 'compiledJS/'
       files:
-        #FIX THIS BULLSHIT
         src: ['compiledJS/**/*.js']
         dest: 'solar.js'
 
@@ -32,6 +33,8 @@ module.exports = (grunt) ->
 
   grunt.loadNpmTasks('grunt-contrib-watch')
   grunt.loadNpmTasks('grunt-contrib-coffee')
+  grunt.loadNpmTasks('grunt-contrib-clean')
+  grunt.loadNpmTasks('grunt-contrib-livereload')
+  grunt.loadNpmTasks('grunt-minispade')
 
-  grunt.registerTask('default', ['coffee', 'minispade'])
-  require('./minispade/grunt-minispade')(grunt)
+  grunt.registerTask('default', ['clean', 'coffee', 'minispade'])
