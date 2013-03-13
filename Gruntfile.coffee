@@ -29,12 +29,14 @@ module.exports = (grunt) ->
 
     watch:
       files: ['coffee/*.coffee', 'server.coffee']
-      tasks: ['coffee', 'minispade']
+      tasks: ['clean', 'coffee', 'minispade']
 
   grunt.loadNpmTasks('grunt-contrib-watch')
   grunt.loadNpmTasks('grunt-contrib-coffee')
   grunt.loadNpmTasks('grunt-contrib-clean')
-  grunt.loadNpmTasks('grunt-contrib-livereload')
+  #grunt.loadNpmTasks('grunt-contrib-livereload')
+  #grunt.loadNpmTasks('grunt-contrib-connect')
+  #grunt.loadNpmTasks('grunt-regarde')
   grunt.loadNpmTasks('grunt-minispade')
 
   grunt.registerTask('default', ['clean', 'coffee', 'minispade'])
